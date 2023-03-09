@@ -1,0 +1,44 @@
+from replit import clear
+import random
+from game_data import data
+from art import logo
+def check (high,ans,guess):
+  if high == ans:
+    return guess == "a"
+  else:
+    return guess =="b"
+    
+continue_game= True
+score=0
+print(logo)
+com_A = random.choice(data)
+print(com_A)
+index_A= data.index(com_A)
+print(f"Compare A: {data[index_A]['name']}, a {data[index_A]['description']}, from {data[index_A]['country']}")
+from art import vs
+while continue_game:
+  com_B =com_A
+  com_A = random.choice(data)
+  while com_A == com_B:
+    com_A = random.choice(data)
+  print(com_B)
+  index_B= data.index(com_B)
+  print(vs)
+  print(f"Against B: {data[index_B]['name']}, a {data[index_B]['description']}, from {data[index_B]['country']}")
+  guess=input("who has more followers? Type 'A' or 'B': ").lower()
+  ans= max(data[index_A]['follower_count'] ,data[index_B]['follower_count'])
+        
+  if guess=="a":
+    high =data[index_A]['follower_count']
+  elif guess=="b":
+    high =data[index_B]['follower_count']
+  is_correct = check(high,ans,guess)
+  clear()
+  print(logo)
+  if is_correct:
+    score+=1
+    print(f"You're right.Current score is {score}")
+  else:
+    continue_game = False
+    print(f"Sorry that's wrong.final score {score}")
+  
