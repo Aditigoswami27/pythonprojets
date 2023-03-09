@@ -1,0 +1,18 @@
+from replit import clear
+from art import logo
+print(logo)
+print("This is the secret auction" )
+end_of_bid =False
+while not end_of_bid:
+  bid_name = input("What's your name ?")
+  bid_value = int(input("Your bid price?\n$"))
+  dict={}
+  dict[bid_name]= bid_value
+  ques=input("Are there any other people who want to bid? type 'yes' or 'no'\n").lower()
+  if ques =="yes":
+    clear()
+    end_of_bid = False
+  elif ques == "no":
+    end_of_bid = True
+    max_bid = max(dict, key =dict.get)
+    print(f"{max_bid} is the winner.")
