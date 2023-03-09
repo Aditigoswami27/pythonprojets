@@ -1,0 +1,44 @@
+import random
+print("""________                                __  .__                                 ___.                 
+ /  _____/ __ __   ____   ______ ______ _/  |_|  |__   ____     ____  __ __  _____\_ |__   ___________ 
+/   \  ___|  |  \_/ __ \ /  ___//  ___/ \   __\  |  \_/ __ \   /    \|  |  \/     \| __ \_/ __ \_  __ \
+\    \_\  \  |  /\  ___/ \___ \ \___ \   |  | |   Y  \  ___/  |   |  \  |  /  Y Y  \ \_\ \  ___/|  | \/
+ \______  /____/  \___  >____  >____  >  |__| |___|  /\___  > |___|  /____/|__|_|  /___  /\___  >__|   
+        \/            \/     \/     \/             \/     \/       \/            \/    \/     \/      """ )
+hardturn = 5
+easyturn =10
+turns =0
+def answer(guess,number,turns):
+  if guess > number:
+      print("Too high.")
+      return turns-1  
+  elif guess< number:
+      print("Tow low")
+      return turns-1
+  elif number == guess:
+      print(f"You got it.The number is {guess}\nGuess again.")  
+def difficulty():
+  start = input("Choose a difficulty level.Type 'easy' or 'hard': ")
+  if start == "easy":
+     return easyturn
+  else:
+     return hardturn    
+
+def game():    
+  print("Welcome to the number guessing game!\nI'm thinking of a number between 1 to 100.")
+  number= random.randint(1,100)
+  #print(number)
+  turns = difficulty()
+  guess=0
+  while guess!= number:
+    print (f"You have {turns} attempts remaining to guess the number")
+    guess = int(input("Make a guess: "))
+    turns =  answer(guess,number,turns)
+    answer(guess,number,turns)
+    if turns== 0:
+      print("You ve run out of guesses.")
+      return #return when used alone exits the function
+    elif guess!= answer:
+      print("Guess again.")
+game()     
+  
