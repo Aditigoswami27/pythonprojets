@@ -1,0 +1,58 @@
+rock = '''
+    _______
+---'   ____)
+      (_____)
+      (_____)
+      (____)
+---.__(___)
+'''
+
+paper = '''
+    _______
+---'   ____)____
+          ______)
+          _______)
+         _______)
+---.__________)
+'''
+
+scissors = '''
+    _______
+---'   ____)____
+          ______)
+       __________)
+      (____)
+---.__(___)
+'''
+
+print("ROCK PAPER SCISSORS !!")
+choice = int(input("What do u choose ?\nType 0 for rock,1 for paper and 2 for scissors -"))
+if choice == 0 :
+   print(rock)
+elif choice == 1 :
+  print(paper)
+else :
+  print(scissors)
+import random
+list = [rock,paper,scissors]
+length = len(list)
+op = random.randint(0,length - 1)
+com_choice = list[op]
+print(f"Computer's choice :\n{com_choice}")
+if choice== 0 and op == 2 :
+  print("YOU LOSE!!")
+elif op > choice :
+  print("YOU LOSE!!")
+elif op == choice :
+  print("Its a draw!!")
+elif choice == 1 and op == 0:
+  print("YOU WIN!!")
+elif choice == 2 and op == 1 :
+  print("YOU WIN!!")
+elif choice == 2 and op == 0 :
+  print("YOU LOSE!!")
+elif choice == 0 and op == 1:
+  print("YOU WIN!!")
+else:
+  print("You typed an invalid number, you lose.")
+  
